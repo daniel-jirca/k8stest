@@ -1,0 +1,48 @@
+---
+# Source: k8s-test/templates/deployment.yaml
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: release-name-k8s-test
+  labels:
+    draft: draft-app
+    chart: "k8s-test-0.1.0-SNAPSHOT"
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        draft: draft-app
+        app: k8s-test
+    spec:
+      containers:
+      - name: k8s-test
+        image: "trow.kube-public:31000/k8stest:1"
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080
+        livenessProbe:
+          httpGet:
+            path: /actuator/health
+            port: 8080
+          initialDelaySeconds: 90
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 1
+        readinessProbe:
+          httpGet:
+            path: /actuator/health
+            port: 8080
+          periodSeconds: 70
+          successThreshold: 1
+          timeoutSeconds: 1
+        resources:
+            limits:
+              cpu: 200m
+              memory: 768Mi
+            requests:
+              cpu: 200m
+              memory: 512Mi
+            
+      terminationGracePeriodSeconds: 10
+      serviceAccountName: k8s-test
