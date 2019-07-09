@@ -20,6 +20,7 @@ spring:
         enabled: true
         strategy: restart_context
         mode: polling
+        monitoring-config-maps: true
 server:
   port: 8080
 

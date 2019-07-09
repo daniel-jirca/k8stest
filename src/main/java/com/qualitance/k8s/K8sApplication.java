@@ -6,9 +6,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.scheduling.annotation.Scheduled;
 
 @SpringBootApplication
 @ComponentScan("com.qualitance")
+@EnableScheduling
 public class K8sApplication {
 
     @Bean
@@ -27,6 +30,7 @@ public class K8sApplication {
         @Value("${title:VALUE_NOT_DEFINED}")
         private String appTitle;
 
+        @Scheduled(fixedRate = 10000)
         public void startApplication() {
             System.out.printf("-- running application: %s --%n", appTitle);
 
