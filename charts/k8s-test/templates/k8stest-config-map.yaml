@@ -4,5 +4,4 @@ metadata:
  name: {{ .Values.service.name }}
 data:
  application.properties: |-
-   app:
-     title: "TEST APPLICATION TAKEN FROM CONFIGMAP"
+   title: "TEST APPLICATION TAKEN FROM CONFIGMAP"

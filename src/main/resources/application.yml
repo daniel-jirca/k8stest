@@ -1,6 +1,3 @@
-app:
-  title: "TEST APPLICATION TAKEN FROM YAML"
-
 spring:
   application:
     name: k8s-test
@@ -21,3 +18,5 @@ spring:
             name: c3
 server:
   port: 8080
+
+#title: "TEST APPLICATION TAKEN FROM YAML"

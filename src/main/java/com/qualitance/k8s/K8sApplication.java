@@ -22,10 +22,9 @@ public class K8sApplication {
         bean.startApplication();
     }
 
-
     private static class MyBean {
 
-        @Value("${app.title:#{null}}")
+        @Value("${title:VALUE_NOT_DEFINED}")
         private String appTitle;
 
         public void startApplication() {
