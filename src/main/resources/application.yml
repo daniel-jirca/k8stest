@@ -16,7 +16,14 @@ spring:
           # Spring Cloud Kubernetes looks up a ConfigMap named c3 in namespace n3
           - namespace: n3
             name: c3
+      reload:
+        enabled: true
+        strategy: restart_context
+        mode: polling
 server:
   port: 8080
+
+
+
 
 #title: "TEST APPLICATION TAKEN FROM YAML"
