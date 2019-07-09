@@ -1,0 +1,10 @@
+---
+# Source: k8s-test/templates/k8stest-config-map.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+ name: k8s-test
+data:
+ application.properties: |-
+   app:
+     title: "TEST APPLICATION TAKEN FROM CONFIGMAP"
