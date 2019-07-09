@@ -1,0 +1,34 @@
+# Default values for Maven projects.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+replicaCount: 1
+image:
+  repository: trow.kube-public:31000/k8stest
+  tag: 1
+  pullPolicy: IfNotPresent
+service:
+  name: k8s-test
+  type: ClusterIP
+  externalPort: 80
+  internalPort: 8080
+  annotations:
+    fabric8.io/expose: "true"
+    fabric8.io/ingress.annotations: "kubernetes.io/ingress.class: nginx"
+resources:
+  limits:
+    cpu: 200m
+    memory: 768Mi
+  requests:
+    cpu: 200m
+    memory: 512Mi
+probePath: /actuator/health
+livenessProbe:
+  initialDelaySeconds: 90
+  periodSeconds: 10
+  successThreshold: 1
+  timeoutSeconds: 1
+readinessProbe:
+  periodSeconds: 70
+  successThreshold: 1
+  timeoutSeconds: 1
+terminationGracePeriodSeconds: 10

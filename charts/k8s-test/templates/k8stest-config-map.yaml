@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+ name: {{ .Values.service.name }}
+data:
+ application.properties: |-
+   app:
+     title: "TEST APPLICATION TAKEN FROM CONFIGMAP"
