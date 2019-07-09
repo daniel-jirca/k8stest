@@ -18,7 +18,7 @@ spring:
             name: c3
       reload:
         enabled: true
-        strategy: restart_context
+        strategy: refresh
         mode: polling
         monitoring-config-maps: true
 server:
