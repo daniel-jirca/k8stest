@@ -18,9 +18,9 @@ spring:
             name: c3
       reload:
         enabled: true
-        strategy: refresh
-        mode: polling
-        monitoring-config-maps: true
+#        strategy: refresh
+#        mode: polling
+#        monitoring-config-maps: true
 server:
   port: 8080
 
