@@ -17,15 +17,15 @@ spec:
     spec:
       containers:
       - name: k8s-test
-        image: "trow.kube-public:31000/k8stest:1"
-        imagePullPolicy: IfNotPresent
+        image: "trow.kube-public:31000/k8stest:12"
+        imagePullPolicy: Always
         ports:
         - containerPort: 8080
         livenessProbe:
           httpGet:
             path: /actuator/health
             port: 8080
-          initialDelaySeconds: 90
+          initialDelaySeconds: 30
           periodSeconds: 10
           successThreshold: 1
           timeoutSeconds: 1
@@ -38,10 +38,10 @@ spec:
           timeoutSeconds: 1
         resources:
             limits:
-              cpu: 200m
+              cpu: 500m
               memory: 768Mi
             requests:
-              cpu: 200m
+              cpu: 400m
               memory: 512Mi
             
       terminationGracePeriodSeconds: 10

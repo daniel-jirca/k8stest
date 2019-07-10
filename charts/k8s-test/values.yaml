@@ -4,7 +4,7 @@
 replicaCount: 1
 image:
   repository: trow.kube-public:31000/k8stest
-  tag: 8
+  tag: 12
   pullPolicy: Always
 service:
   name: k8s-test
@@ -23,7 +23,7 @@ resources:
     memory: 512Mi
 probePath: /actuator/health
 livenessProbe:
-  initialDelaySeconds: 300
+  initialDelaySeconds: 30
   periodSeconds: 10
   successThreshold: 1
   timeoutSeconds: 1
