@@ -3,5 +3,6 @@ kind: ConfigMap
 metadata:
  name: {{ .Values.service.name }}
 data:
- application.properties: |-
-   title: "TEST APPLICATION TAKEN FROM CONFIGMAP"
+  application.yaml: |-
+    app:
+      title: "TEST APPLICATION TAKEN FROM CONFIGMAP!"

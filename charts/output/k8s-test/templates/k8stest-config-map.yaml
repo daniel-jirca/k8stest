@@ -5,5 +5,6 @@ kind: ConfigMap
 metadata:
  name: k8s-test
 data:
- application.properties: |-
-   title: "TEST APPLICATION TAKEN FROM CONFIGMAP"
+  application.yaml: |-
+    app:
+      title: "TEST APPLICATION TAKEN FROM CONFIGMAP!"

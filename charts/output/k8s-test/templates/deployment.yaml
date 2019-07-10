@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: k8s-test
-        image: "trow.kube-public:31000/k8stest:12"
+        image: "eu.gcr.io/qchat-236609/k8stest:2"
         imagePullPolicy: Always
         ports:
         - containerPort: 8080

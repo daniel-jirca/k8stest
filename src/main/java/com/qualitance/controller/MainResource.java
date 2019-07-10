@@ -1,18 +1,24 @@
 package com.qualitance.controller;
 
-import org.springframework.beans.factory.annotation.Value;
+import com.qualitance.config.ApplicationProperties;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class MainResource {
 
-    @Value("${title:VALUE_NOT_DEFINED}")
-    private String appTitle;
+//    @Autowired
+    private final ApplicationProperties appProps;
+
+    public MainResource(ApplicationProperties appProps) {
+        this.appProps = appProps;
+    }
 
     @GetMapping("/get-message")
     public String getMessage(){
-        return appTitle;
+        System.out.println("Request to get app title! Getting it from the object "+ appProps.toString());
+        return appProps.getTitle();
     }
 
 }

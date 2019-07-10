@@ -3,8 +3,8 @@
 # Declare variables to be passed into your templates.
 replicaCount: 1
 image:
-  repository: trow.kube-public:31000/k8stest
-  tag: 12
+  repository: eu.gcr.io/qchat-236609/k8stest
+  tag: 2
   pullPolicy: Always
 service:
   name: k8s-test

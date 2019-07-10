@@ -1,26 +1,7 @@
 spring:
-  application:
-    name: k8s-test
-  #  main:
-  #    web-application-type: none
-  cloud:
-    kubernetes:
-      config:
-        name: k8s-test
-        namespace: default
-#        sources:
-          # Spring Cloud Kubernetes looks up a ConfigMap named c1 in namespace default-namespace
-#          - name: k8s-test
-          # Spring Cloud Kubernetes looks up a ConfigMap named default-name in whatever namespace n2
-#          - namespace: n2
-          # Spring Cloud Kubernetes looks up a ConfigMap named c3 in namespace n3
-#          - namespace: n3
-#            name: c3
-      reload:
-        enabled: true
-#        strategy: refresh
-#        mode: polling
-#        monitoring-config-maps: true
+  application.name: k8s-test
+  cloud.kubernetes.reload.enabled: true
+
 server:
   port: 8080
 
@@ -33,4 +14,5 @@ management:
     info:
       enabled: true
 
-#title: "TEST APPLICATION TAKEN FROM YAML"
+app:
+  title: "TEST APPLICATION TAKEN FROM YAML FILE"
